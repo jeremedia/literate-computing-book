@@ -102,6 +102,8 @@ GPT-5 Pro's scholarly analysis frames this perfectly: **"Capability vs. Cognitio
 
 The practical implication: treat AI as a high-bandwidth language instrument with execution hooks, not as a mind. It's a tool that happens to interface through natural language, not a person who happens to be made of software.
 
+**→ Appendix C provides detailed checklists and incident vignettes** showing what happens when capability is confused with cognition, plus protocols for safe LT interaction.
+
 ## Why Execution Access Changes Everything
 
 Here's where pattern matching becomes systematic knowledge compilation: **execution access.**

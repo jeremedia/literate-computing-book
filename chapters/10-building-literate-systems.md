@@ -813,6 +813,8 @@ verification_plan:
     - "Operates reliably for 7 days continuous"
 ```
 
+**→ Appendix B provides quick evaluation checklists** for task fitness, output quality, and safety/access verification.
+
 ## Practical Patterns
 
 Based on November 17, 2025 and this chapter's examples:
@@ -897,10 +899,10 @@ Capacity = (Intent Clarity × AI Capability) ÷ Verification Cost
 - **Reality:** Systems fail in unexpected ways
 - **Fix:** Include failure tests in verification plan
 
-**6. Treating AI as magic**
+**6. Treating AI as magic (confusing capability for cognition)**
 - **Mistake:** Expect AI to "just know" undocumented systems
 - **Reality:** AI applies compiled patterns; novel systems need exploration
-- **Fix:** Allow time for exploration pattern (Chapter 5) to run
+- **Fix:** Allow time for exploration pattern (Chapter 5) to run; see Appendix C for capability vs cognition distinction
 
 **7. Skipping verification plan**
 - **Mistake:** Deploy without systematic testing
@@ -950,5 +952,7 @@ Building literate systems requires:
 **The key insight:** Literate systems aren't built by writing more code. They're built by making existing capabilities accessible through natural language comprehension.
 
 Every system has latent literacy. This chapter showed you how to unlock it.
+
+**→ Appendix D provides a scorecard for measuring the quality of literate interactions**, helping you evaluate and improve your system's comprehension, actionability, and safety.
 
 Next, readers can apply these patterns to their own infrastructure, building systems that comprehend intent and participate in their own operation—just like the routers, monitoring scripts, and web deployment that made this book possible on November 17, 2025.

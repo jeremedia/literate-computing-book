@@ -22,6 +22,8 @@ Computers were always capable. We just could not speak their language. With LT, 
 ## Capability vs. Cognition
 Literate Technology can represent and act on patterns of language and action. It does not have subjective experience. It follows patterns, constraints, and checks that you install. Treat it as a high-bandwidth language instrument, not a mind.
 
+**→ Appendix C explores this distinction in depth with checklists and incident vignettes** showing what happens when capability is mistaken for cognition.
+
 ## Why This Framing Helps
 - **Precision.** LT focuses on language capability rather than broad “intelligence”.
 - **Expectation management.** You get a useful partner in articulation and action, not an oracle.
@@ -46,3 +48,5 @@ When you say, “Give me a 30-second refresh of WAN throughput, CPU temp, packet
 - It turns your natural language into concrete actions and artifacts.
 - It is not consciousness. It is a disciplined interface for intent.
 - Use it to shrink the translation tax between what you want and what the machine can already do.
+
+**→ Appendix A provides a complete glossary** of key terms used throughout the book.
