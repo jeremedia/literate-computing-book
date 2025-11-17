@@ -196,13 +196,31 @@ Your capacity at Year 5 is impressive but bounded by those 600 hours of learning
 
 ### LT Capacity Formula
 
-**Capacity = Intent clarity × AI capability set**
+**Capacity = (Intent clarity × AI capability set) ÷ Verification cost**
 
 Your capacity is now determined by:
 - **Intent clarity**: How well you can articulate what you want to accomplish
 - **AI capability set**: What the AI can do based on compiled knowledge from millions
+- **Verification cost**: The time and expertise required to validate that the AI's output is correct
 
-This transforms the constraints:
+The verification cost divisor is crucial. LT systems apply compiled patterns, but you must verify the results work in your specific context. This isn't optional—it's foundational to safe, reliable literate computing.
+
+**What verification involves:**
+- Testing that generated scripts actually work
+- Confirming outputs match expected behavior
+- Checking for edge cases and failure modes
+- Validating security and safety properties
+- Ensuring solutions fit your specific constraints
+
+On November 17, verification took about 15% of total time—10 minutes of testing for 60 minutes of total work. This is still dramatically faster than traditional approaches, but honest accounting matters.
+
+The good news: **verification cost is typically low** when:
+- The domain has clear success criteria (script runs, metrics appear)
+- You can test safely (dev environments, read-only operations)
+- Failures are obvious and reversible
+- The AI provides testable, observable outputs
+
+The formula transforms the constraints:
 
 **Multiplicative growth**: As AI capabilities expand (through training, tools, access), your capacity multiplies without additional personal learning.
 
@@ -213,6 +231,8 @@ This transforms the constraints:
 **Context transfer**: Intent expressed for one system often works for others. The AI handles context switching.
 
 **Breadth without sacrifice**: You can be expert-level in multiple areas because expertise is compiled and accessible, not memorized.
+
+**Verification as guardrail**: The verification requirement keeps you engaged, prevents blind trust, and ensures solutions actually work.
 
 ### Example: LT Network Administration
 
@@ -356,6 +376,99 @@ Articulation is a learnable skill. Here's how to improve:
 
 Articulation improves through practice and feedback, just like any language skill.
 
+### Intent Specification Template
+
+To help structure clear articulation, here's a reusable template for expressing intent to LT systems:
+
+---
+
+**Template: Intent Specification for Literate Technology**
+
+**Goal**: [What you want to accomplish, in outcome terms]
+- Example: "Monitor network health and display real-time metrics in my menu bar"
+
+**Context**: [The environment, systems, and constraints you're working with]
+- Systems involved: [Router models, servers, platforms]
+- Access available: [SSH keys, API credentials, permissions]
+- Current state: [What's already set up, what's missing]
+- Constraints: [Rate limits, security policies, performance requirements]
+
+**Success Criteria**: [How you'll know the goal is achieved]
+- Measurable outcomes: [Specific metrics, behaviors, or artifacts]
+- Expected behavior: [What should happen in normal operation]
+- Failure modes: [What should NOT happen, safety boundaries]
+- Example: "Menu bar shows CPU temp, connection count, and bandwidth with alerts when thresholds exceed normal ranges"
+
+**Expected Artifacts**: [What should be created or modified]
+- Scripts: [Executable files, monitoring tools]
+- Configurations: [Config files, settings]
+- Documentation: [Logs, explanations, usage notes]
+- Example: "SwiftBar script that updates every 30 seconds, logs to ~/network-health.log"
+
+**Verification Requirements**: [How to test the solution]
+- Testing approach: [Manual checks, automated tests]
+- Edge cases: [Scenarios to verify]
+- Rollback plan: [How to undo if something goes wrong]
+- Example: "Verify: script runs without errors, metrics match router web UI, alerts trigger at specified thresholds"
+
+**Iteration Feedback**: [What to refine based on results]
+- First attempt observations: [What worked, what didn't]
+- Refinement requests: [Specific improvements needed]
+- Example: "After seeing initial output, add packet loss % and filter out inactive interfaces"
+
+---
+
+**Using the template:**
+
+You don't need to fill every field for every request. Simple tasks might only need Goal and Context. Complex infrastructure work benefits from the full specification.
+
+**Example: Simple request using template**
+
+```
+Goal: Show me which WiFi device is using the most bandwidth right now
+
+Context: GL-BE3600 router at 192.168.1.6, SSH access available
+
+Success Criteria: Output lists devices sorted by current bandwidth usage with human-readable rates
+```
+
+**Example: Complex request using full template**
+
+```
+Goal: Create comprehensive network health monitoring visible in macOS menu bar
+
+Context:
+- Systems: MikroTik RB5009 (192.168.1.1), GL-BE3600 (192.168.1.6)
+- Access: SSH keys configured, SwiftBar installed
+- Current state: Routers operational, no monitoring yet
+- Constraints: Updates every 30s max, minimal router CPU impact
+
+Success Criteria:
+- Menu bar shows critical metrics from both routers
+- Color-coded alerts (green/yellow/red) for health status
+- Click to see detailed breakdown
+- Low resource usage (<1% CPU on monitoring machine)
+
+Expected Artifacts:
+- network-health.30s.sh SwiftBar script
+- SSH connection wrapper for reliability
+- Usage documentation in script comments
+
+Verification Requirements:
+- Script executes successfully every 30 seconds
+- Metrics match router web interfaces
+- SSH failures handled gracefully (show "offline" status)
+- Test edge cases: router reboot, network interruption, SSH key issues
+
+Iteration Feedback:
+- First version: basic metrics working
+- Refinement 1: Add WiFi client counts
+- Refinement 2: Include WAN traffic rates
+- Refinement 3: Add threshold-based color coding
+```
+
+The template transforms vague requests into actionable specifications while maintaining natural language expressiveness.
+
 ## The Democratization of Expertise
 
 This paradigm shift democratizes expert capabilities. Not by eliminating expertise, but by making expert execution accessible to anyone who can express expert intent.
@@ -390,39 +503,83 @@ This paradigm shift democratizes expert capabilities. Not by eliminating experti
 
 The execution expertise is democratized. The conceptual expertise (knowing what to monitor, why it matters, what thresholds make sense) remains valuable and necessary.
 
-### What Doesn't Get Democratized
+### What Doesn't Get Democratized (Skills Evolve, They Don't Vanish)
 
-Important: This isn't magic that makes everyone instantly expert. Some things remain essential:
+Important: This paradigm shift doesn't eliminate expertise—it transforms and elevates it. Some skills remain essential, but they evolve in how they're applied:
 
-**Domain knowledge**: Understanding what network health means, why packet loss matters, what CPU temperatures are normal.
+**Domain knowledge** (remains critical, shifts from memorization to comprehension):
+- **Still essential**: Understanding what network health means, why packet loss matters, what CPU temperatures are normal
+- **Evolution**: Instead of memorizing specific commands to check these metrics, you focus on understanding what the metrics indicate about system health
+- **Example**: A network expert's value isn't knowing `/interface monitor-traffic` syntax—it's knowing that sustained >80% bandwidth utilization indicates capacity planning needs
 
-**Judgment**: Deciding whether a solution is appropriate, whether risks are acceptable, whether trade-offs make sense.
+**Judgment** (becomes MORE valuable):
+- **Still essential**: Deciding whether a solution is appropriate, whether risks are acceptable, whether trade-offs make sense
+- **Evolution**: With faster iteration, you make more decisions per unit time, each informed by rapid empirical feedback
+- **Example**: Instead of spending hours implementing one monitoring approach, you evaluate three AI-generated approaches in 30 minutes and choose the best fit
 
-**Architecture**: Designing systems, choosing approaches, planning infrastructure.
+**Architecture** (elevated from implementation to design):
+- **Still essential**: Designing systems, choosing approaches, planning infrastructure
+- **Evolution**: Focus shifts from "How do I implement this?" to "What should I build and why?"
+- **Example**: Instead of debugging bash script syntax, you spend time deciding whether to monitor at 30-second or 5-minute intervals and what that means for your alert strategy
 
-**Context understanding**: Knowing your specific constraints, requirements, and priorities.
+**Context understanding** (uniquely yours):
+- **Still essential**: Knowing your specific constraints, requirements, and priorities
+- **Evolution**: This becomes your primary contribution—AI provides general patterns, you provide specific context
+- **Example**: The AI knows monitoring best practices; you know that your network has scheduled backup traffic at 2 AM that shouldn't trigger alerts
 
-**Problem diagnosis**: Recognizing when something is wrong and what category of problem it might be.
+**Problem diagnosis** (enhanced by rapid exploration):
+- **Still essential**: Recognizing when something is wrong and what category of problem it might be
+- **Evolution**: You diagnose at a higher level; the AI handles detailed investigation
+- **Example**: You notice "network feels slow" → AI explores metrics, identifies specific bottleneck → you decide the solution priority
 
-**Goal setting**: Deciding what you're trying to accomplish and why it matters.
+**Goal setting** (purely human):
+- **Still essential**: Deciding what you're trying to accomplish and why it matters
+- **Evolution**: With execution barriers lowered, goal-setting becomes the primary skill
+- **Example**: You decide monitoring packet loss matters for VoIP quality; AI implements the monitoring
 
-These remain human responsibilities. What gets democratized is the technical execution of those decisions.
+These skills don't vanish—they evolve to higher levels of abstraction. What gets democratized is the technical execution. What remains valuable (and becomes MORE valuable) is the wisdom about what to build, why to build it, and whether it's working as intended.
+
+### The Expertise Transformation
+
+**Traditional expert profile:**
+- Deep knowledge of specific tools and platforms
+- Extensive memorization of syntax and commands
+- Strong debugging skills for specific languages
+- Years invested in hands-on implementation
+
+**LT expert profile:**
+- Deep understanding of domain principles and patterns
+- Strong articulation of goals and constraints
+- Rapid evaluation of AI-generated solutions
+- Hours invested in concepts, minutes in implementation
+
+The skills don't disappear—they shift from **tactical execution** to **strategic direction**.
+
+**Traditional novice → expert path:**
+1. Learn commands → 2. Practice syntax → 3. Debug errors → 4. Understand concepts → 5. Make architectural decisions
+
+**LT novice → expert path:**
+1. Understand concepts → 2. Articulate intent → 3. Verify solutions → 4. Make architectural decisions
+
+The LT path inverts the traditional learning curve: you start with concepts (understanding) and get execution through AI, rather than starting with execution (commands) and eventually reaching concepts.
 
 ### The New Expertise Hierarchy
 
-**Traditional hierarchy:**
+**Traditional hierarchy** (execution-focused):
 - Novice: Can follow tutorials
 - Intermediate: Can adapt examples
 - Advanced: Can create solutions from scratch
 - Expert: Can handle edge cases and unusual situations
 
-**LT hierarchy:**
+**LT hierarchy** (intent-focused):
 - Novice: Can express basic intent ("show me status")
 - Intermediate: Can express specific intent with context ("show network health metrics")
 - Advanced: Can articulate complex goals with constraints ("monitor and alert on threshold violations")
 - Expert: Can design systems, evaluate approaches, make architectural decisions
 
-The execution level is democratized. Everyone can get expert-level implementation if they can articulate intent. But designing good systems, making wise architectural choices, and exercising sound judgment still require expertise.
+The difference: expertise in the LT era is measured by the quality of your goals and judgment, not the breadth of your command memorization. The expert network engineer of 2025 may not remember RouterOS syntax, but they deeply understand network behavior, can diagnose issues from symptoms, and can design monitoring strategies that catch problems before users notice.
+
+**Expertise shifts from knowing how to execute to knowing what's worth executing.**
 
 ## Intent Across Timeframes
 
