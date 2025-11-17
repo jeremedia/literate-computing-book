@@ -2,13 +2,17 @@
 
 ## Opening Example
 
-It's November 17, 2025, and I'm staring at my MikroTik RB5009 router. It's handling over 25,000 active connections, routing traffic for my entire home infrastructure, and sitting there silently doing exactly what it's programmed to do. The router knows everything happening on my network: which devices are connected, how much bandwidth they're using, when connections fail, what's slow, what's fast. It has all this information, but it can't tell me about it unless I know exactly which commands to type, which web interface pages to navigate, which specific buttons to click.
+It's November 17, 2025, and I'm staring at my MikroTik RB5009 router. It's handling exactly 25,583 active connections at 46°C, with 855MB of free memory and 10% CPU load, routing traffic for my entire home infrastructure, and sitting there silently doing exactly what it's programmed to do. The router knows everything happening on my network: which devices are connected, how much bandwidth they're using, when connections fail, what's slow, what's fast. It has all this information, but it can't tell me about it unless I know exactly which commands to type, which web interface pages to navigate, which specific buttons to click.
 
 The router is extraordinarily capable. It's just completely illiterate.
 
 By illiterate, I don't mean it can't display text or process commands. I mean it can't understand what I want. When I'm concerned about network performance, I can't ask it "Is everything running smoothly?" When I notice my WiFi feels slow, I can't say "What's using all the bandwidth?" The router sits there with all the answers, waiting for me to translate my intent into its language: CLI commands, API calls, or precise sequences of clicks through a web interface.
 
-This is the defining characteristic of traditional computing. Computers are event-polling machines. They respond to specific inputs with specific outputs. Press this button, get that result. Type this command, receive that response. They are extraordinarily good at this, but they have no semantic understanding of what you're trying to accomplish or why you're trying to accomplish it.
+This is the defining characteristic of traditional computing.
+
+We experienced this firsthand on November 17, 2025, with an Eero 6E router. Despite being a modern, capable WiFi 6E device, it offered zero CLI access. No SSH. No telnet. No API. Just a web interface and mobile app. We could see it was connected on ether2 of the MikroTik, but we couldn't ask it anything directly. All that WiFi performance data, client information, signal strength metrics were locked behind a GUI that required clicking through multiple screens to find basic information. We replaced it with a GL-BE3600 WiFi 7 router specifically because it runs OpenWRT with full SSH access. Same capabilities, but one is literate to those who speak SSH and one is not.
+
+When we replaced the GUI-only Eero with the OpenWRT-based GL-BE3600, I celebrated: "100% CLI-accessible by Claude! By AI, hah. 2025!!" The exclamation points were genuine. Not because the router gained new capabilities. It could do the same things as the Eero. Those capabilities became accessible through natural language via AI with SSH access. The router became literate, or more accurately, I gained a literate interface to it. Computers are event-polling machines. They respond to specific inputs with specific outputs. Press this button, get that result. Type this command, receive that response. They are extraordinarily good at this, but they have no semantic understanding of what you're trying to accomplish or why you're trying to accomplish it.
 
 ## Core Concept
 
@@ -24,7 +28,7 @@ Let's be precise about what we mean by "event-polling." A traditional computer d
 
 This is not a limitation of computing power. A modern smartphone has more processing capacity than the supercomputers that sent humans to the moon. The limitation is one of interface design: computers are designed to respond to precisely specified inputs, not to understand what you're trying to accomplish.
 
-Consider what happens when you want to check if your network is healthy. With a MikroTik router, you might:
+Consider what happens when you want to check if your network is healthy. With a MikroTik RB5009 router (RouterOS 7.20.4), you might:
 
 1. Open a web browser
 2. Navigate to the router's IP address
@@ -86,11 +90,20 @@ So often, you just don't. You work around it. You do things manually. You settle
 
 This is the mental weight: the constant awareness of unrealized potential, coupled with the knowledge that realizing it requires effort you may not have time for right now.
 
+I carry this weight constantly. My list from November 17 alone:
+- Monitor all 42 Rails processes individually, not just that Apache is running
+- Track bandwidth per application
+- Alert when specific devices disconnect
+- Correlate network issues with application errors
+- Generate weekly infrastructure health reports
+
+Each item is possible. My MikroTik can track per-connection bandwidth. My server can report per-process memory. Each requires learning a new API, writing parsing code, and handling errors. So they sit there, a reminder of what could be automated but is not. the constant awareness of unrealized potential, coupled with the knowledge that realizing it requires effort you may not have time for right now.
+
 Every experienced computer user carries a mental backlog of things they wish their computer could do: scripts they haven't written, automations they haven't configured, integrations they haven't set up. These aren't impossible tasks. They're just tasks that require translating clear intent into computer-compatible instructions, and that translation takes time and expertise.
 
 ## Network Monitoring Before Literacy
 
-Let me give you a concrete example from my infrastructure work. I wanted to monitor network health and display it in my macOS menu bar. Simple goal: see at a glance if everything is working.
+Let me give you a concrete example from my infrastructure work. I wanted to monitor network health and display it in my macOS menu bar, refreshing every 30 seconds. Simple goal: see at a glance if everything is working.
 
 To accomplish this without AI assistance, I would need to:
 
@@ -110,6 +123,19 @@ Every step requires translation. I need to translate "network health" into speci
 I could do this. I have the skills. But it would take hours. So like many such tasks, it would sit on my mental backlog, unrealized potential weighing on me every time I manually checked if the network was working.
 
 This is the state of traditional computing: surrounded by capable machines that can't understand what we want.
+
+### What Actually Happened (November 17, 2025)
+
+In reality, here is how network monitoring was achieved with AI assistance:
+
+```
+User: "What's the network performance? Does the MikroTik have anything we can use?"
+Assistant: [SSH to router, explore capabilities, discover metrics]
+Assistant: [Create network-health.30s.sh script]
+Assistant: [Debug parsing errors, fix integer comparisons]
+Result: Complete monitoring in 30 minutes
+```
+
 
 ## The Click Economy
 
@@ -172,3 +198,7 @@ When thinking about computer illiteracy, avoid these traps:
 The illiterate computer is extraordinarily capable. It just can't understand what you want. Everything you accomplish requires translating your intent into its language: commands, clicks, API calls, configuration files. This translation burden is so pervasive we barely notice it.
 
 But we're about to notice. Because computers are learning to read.
+
+On November 17, 2025, I watched an assistant explore a WiFi router through SSH, discover its capabilities, create monitoring scripts, and explain what it found. The request was simple. "Can you work with it?" The computer did not just execute commands. It understood intent.
+
+The age of literate computing has begun.
