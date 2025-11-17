@@ -16,7 +16,9 @@ The graphical user interface revolution of the 1980s and 1990s promised to democ
 
 Most significantly, GUIs moved control over what questions you can ask from you to the interface designer. The CLI was intimidating but infinite: if the computer could do it, you could command it to do it. The GUI is friendly but finite: you can only do what someone anticipated you might want to do.
 
-This chapter explores what we gained and what we lost in the CLI-to-GUI transition, why power users often return to command-line interfaces, and how understanding these tradeoffs helps us appreciate what Literate Technology (LT) actually solves.
+This imposed what Chapter 0 called the **translation tax**: the ongoing cost of converting your intent into the specific sequence of actions the interface permits. With CLIs, you paid this tax once by learning commands. With GUIs, you pay it repeatedly—every click sequence is a manual translation of "what I want" into "where the designer put it."
+
+This chapter explores what we gained and what we lost in the CLI-to-GUI transition, how these costs map to Literate Technology's four facets of literacy, why power users often return to command-line interfaces, and how understanding these tradeoffs helps us appreciate what LT actually solves.
 
 ## The Promise
 
@@ -30,7 +32,7 @@ But the promise had fine print we didn't read carefully enough.
 
 ## What GUIs Actually Solved: The Discovery Problem
 
-Let's be specific about what GUIs fixed. In the command-line era, using a computer required knowing what was possible. To list files, you had to know that a command called `ls` existed. To copy files, you had to know about `cp`. To get help, you had to know about `man` pages or `--help` flags.
+Let's be specific about what GUIs fixed. As Chapter 1 established, the command-line era required knowing what was possible before you could do anything. To list files, you had to know that a command called `ls` existed. To copy files, you had to know about `cp`. To get help, you had to know about `man` pages or `--help` flags.
 
 This created a brutal chicken-and-egg problem: you couldn't discover what was possible without already knowing what to look for. You needed someone to tell you the commands existed, or you needed to read documentation, or you needed to stumble across them through trial and error.
 
@@ -38,7 +40,21 @@ GUIs solved this beautifully. Menus showed you what operations were available. T
 
 This was genuine progress. The discovery problem was real, and GUIs provided an elegant solution. No one should romanticize the memorization burden of pure CLI systems.
 
-But in solving the discovery problem, GUIs introduced new problems that we're still grappling with decades later.
+But in solving the discovery problem, GUIs introduced new problems that we're still grappling with decades later—problems that directly constrain what Chapter 0 defined as the four facets of literacy.
+
+## How GUIs Constrain Literacy
+
+GUIs limit each of the four facets that make systems literate:
+
+**Vocabulary**: The interface designer decides which metrics have names and visibility. In my Eero example, "bandwidth per device" simply doesn't exist in the GUI's vocabulary, even though the hardware tracks it. The vocabulary is curated, not comprehensive.
+
+**Comprehension**: GUIs can't infer what you're trying to accomplish beyond the options presented. When I need to diagnose a network slowdown, the Eero can't comprehend that intent and surface relevant data. It shows only what its designers anticipated.
+
+**Fluency**: GUIs excel at showing individual pieces of information but struggle to synthesize narratives. Getting a complete picture requires mentally assembling fragments from multiple screens. The system can't tell you a coherent story about its state.
+
+**Writing**: This is where the automation barrier hits hardest. GUIs can display information but rarely produce artifacts you can reuse, modify, or automate. Every interaction is ephemeral, trapped in the moment of clicking.
+
+These limitations aren't accidental. They're inherent to the GUI model: the interface must be designed in advance, which means someone must predict what you'll need. Literate systems, by contrast, adapt to your expressed intent.
 
 ## The Automation Barrier
 
@@ -48,11 +64,9 @@ With the CLI, once you learned that `ls -la | grep "Nov 17"` showed files from N
 
 The command was data. It could be stored, transmitted, modified, and automated.
 
-With GUIs, the equivalent operation might be: open Finder, navigate to the folder, click the search icon, type "November 17" in the date field, select "Today" from the dropdown. This sequence of operations is trapped in your muscle memory. You can't save it. You can't automate it. You can't easily tell someone else how to do it. You certainly can't compose it with other operations in a pipeline.
+With GUIs, the equivalent operation might be: open Finder, navigate to the folder, click the search icon, type "November 17" in the date field, select "Today" from the dropdown. This sequence of operations is trapped in your muscle memory. You can't save it. You can't automate it without specialized tools. You certainly can't compose it with other operations in a pipeline.
 
-Every time you want to see today's files, you perform the sequence again. Manually. The same clicks in the same order.
-
-This is the automation barrier: GUIs make tasks discoverable but not automatable. Or rather, automation becomes a specialized skill requiring tools like AppleScript or Automator or Selenium, which are themselves complex systems that most users never learn.
+This is the automation barrier: GUIs make tasks discoverable but not automatable. Automation becomes a specialized skill requiring tools like AppleScript or Selenium, which are themselves complex systems that most users never learn.
 
 The irony is thick: we made computers easier to use for simple tasks by making them harder to use for repeated tasks.
 
@@ -64,19 +78,11 @@ Unix philosophy taught us to build small tools that do one thing well and can be
 cat access.log | grep "404" | cut -d' ' -f1 | sort | uniq -c | sort -rn
 ```
 
-This pipeline answers "Which IP addresses triggered the most 404 errors?" by composing five simple tools: cat, grep, cut, sort, uniq. Each tool is simple. Combined, they're powerful.
+This pipeline answers "Which IP addresses triggered the most 404 errors?" by composing five simple tools. Each tool is simple. Combined, they're powerful.
 
-GUIs broke this composability. Each application became an island. You could perform operations within an application, but connecting applications required special integration work. Copy-paste became the universal glue, a crude way to move data between systems that couldn't talk to each other.
+GUIs constrained this composability. Each application became more isolated. You could perform operations within an application, but connecting applications required special integration work. Copy-paste became the universal glue, a crude way to move data between systems that couldn't talk to each other directly.
 
-Want to take the output of one GUI app and feed it into another? You'll need to:
-1. Export from the first app (if it supports export)
-2. In a format the second app can import (if formats align)
-3. Save to disk (because there's no pipe)
-4. Open the second app
-5. Import the file
-6. Probably massage the data because the formats don't quite match
-
-The elegant composability of CLI pipelines vanished. Each GUI application became responsible for more features because it couldn't easily delegate to specialized tools.
+Want to take the output of one GUI app and feed it into another? You'll need to export, save to disk, open the second app, import, and probably massage the data because the formats don't quite match. The elegant composability of CLI pipelines was constrained by the need for explicit export/import workflows.
 
 ## The Efficiency Paradox
 
@@ -119,13 +125,13 @@ Let's talk about what happened with my Eero router. It has a gorgeous interface.
 But on November 17, 2025, I wanted to know things the designers hadn't anticipated:
 - Which port is the WAN uplink on my MikroTik connected to?
 - What's the signal strength of each connected device?
-- Can I see live packet throughput?
-- What WiFi channels are my neighbors using?
+- Can I see live traffic patterns?
+- What Wi-Fi channels are my neighbors using?
 - Can I get raw connection statistics?
 
-The Eero has this information. It must, to function. But the beautiful interface doesn't expose it. There's no CLI. No SSH. No API for reading (only for control through their cloud service). The capabilities are there, but they're locked behind an interface designed for a different set of questions.
+The Eero has this information. It must, to function. But the beautiful interface doesn't expose it. As of November 17, 2025, there's no CLI, no SSH, and no local read API (only cloud-based control). The capabilities are there, but they're locked behind an interface designed for a different set of questions.
 
-We replaced it with a GL-BE3600 WiFi 7 router. Not because it had better hardware (though it did). Not because it had better software (debatable). Because it runs OpenWRT with full SSH access. Same capabilities, but all of them accessible through a command-line interface that could answer any question I could articulate.
+We replaced it with a GL.iNet GL-BE3600 WiFi 7 router. Not because it had better hardware (though it did). Not because it had better software (debatable). Because it runs OpenWrt with full SSH access. Same capabilities, but all of them accessible through a command-line interface that could answer any question I could articulate.
 
 The Eero optimized for visual beauty and initial ease of use. The GL-BE3600 optimized for full capability access. In a world of Literate Technology, where natural language can access CLI capabilities, the second strategy wins decisively.
 
@@ -147,11 +153,9 @@ The democratization promised by GUIs came with a hidden cost: we traded memoriza
 
 ## The Modal Trap
 
-GUIs introduced modality in ways CLIs rarely did. A modal interface is one where the same action means different things depending on what mode you're in.
+GUIs introduced modality in ways that happen less with CLIs. A modal interface is one where the same action means different things depending on what mode you're in.
 
-In a text editor, typing "i" might insert the letter "i" in insert mode, but in command mode it might enter insert mode. This is modal.
-
-But GUI modality is often worse because it's less visible. You click a button and nothing happens because you weren't in the right mode. You press a key and get unexpected results because some dialog has focus. You try to paste and it goes to the wrong window because window focus changed while you were looking away.
+GUI modality is often invisible. You click a button and nothing happens because you weren't in the right mode. You press a key and get unexpected results because some dialog has focus. You try to paste and it goes to the wrong window because window focus changed while you were looking away.
 
 Modal interfaces require users to track state. Am I in edit mode or view mode? Is this window active or is that one? Did that dialog box already close or is it hidden behind another window?
 
@@ -159,7 +163,7 @@ CLIs have modes too (vim is famously modal), but the command prompt clearly show
 
 ## The Update Treadmill
 
-Here's something that barely happened with CLIs: interfaces changing locations.
+Here's something that happens less with CLIs: interfaces changing locations.
 
 In bash, `ls` has worked the same way for decades. The options might expand, but `ls -la` means the same thing on a server from 1995 and a Mac from 2025.
 
@@ -177,8 +181,8 @@ Let me give you the concrete example that crystallized these issues on November 
 
 I needed to understand my network topology. The Eero 6E was connected to ether2 on my MikroTik RB5009. I could see it was there. But I couldn't ask it:
 - "What devices are connected to you?"
-- "What's your current throughput?"
-- "What WiFi channels are you using?"
+- "What's your current traffic load?"
+- "What Wi-Fi channels are you using?"
 - "Show me signal strength for each client."
 
 These aren't exotic questions. They're basic operational information. The Eero absolutely knows the answers. It tracks every device, every packet, every signal. But its interface showed me a dashboard with three metrics: "Devices online," "Network healthy," and "Great performance." Useless abstractions when you need specifics.
@@ -191,9 +195,9 @@ To get real information, I would have needed to:
 5. Click through multiple screens
 6. Try to mentally synthesize what I was seeing
 
-And even then, I wouldn't get real-time throughput. I wouldn't get signal strength per device. I wouldn't get WiFi channel analysis. These capabilities might exist in the firmware but they're not exposed in the interface.
+And even then, I wouldn't get instantaneous throughput data. I wouldn't get real-time signal strength per device. I wouldn't get Wi-Fi channel analysis. These capabilities might exist in the firmware but they're not exposed in the interface.
 
-We replaced it with the GL-BE3600. OpenWRT. Full SSH access. Within minutes of connecting it:
+We replaced it with the GL-BE3600. OpenWrt. Full SSH access. Within minutes of connecting it:
 
 ```bash
 ssh root@192.168.1.6
@@ -201,7 +205,25 @@ iwinfo wlan0 info
 iwinfo wlan0 assoclist
 ```
 
-Complete information. Signal strength per client. Channel usage. Throughput. TX power. Every metric the hardware tracks. No interface designer decided what I could see. The capabilities themselves are the interface.
+Complete information. Signal strength per client. Channel usage. Link rates and connection quality. TX power. Every metric the hardware tracks. No interface designer decided what I could see. The capabilities themselves are the interface.
+
+### What This Looks Like with Literate Technology
+
+Natural language to artifact (November 17, 2025):
+
+**Me:** "Who is using the most bandwidth right now on WiFi?"
+
+**Assistant:** [SSH to router; sample station RX/TX counters for 5 seconds; compute deltas; sort by total throughput]
+
+**Result:** "Top bandwidth users: Pixel-7 (12.4 Mbps), TV (8.1 Mbps), Laptop (3.2 Mbps). Based on 5-second average of link-layer traffic."
+
+**Artifact created:** `top_wifi_talkers.sh` (30 lines, reusable script)
+
+This demonstrates all four facets of literacy:
+- **Vocabulary**: The system understood "bandwidth" in the context of Wi-Fi clients
+- **Comprehension**: It inferred I wanted current usage ranked by device
+- **Fluency**: It provided a clear, contextualized summary with technical qualifiers
+- **Writing**: It produced an executable artifact I can run again or modify
 
 When I confirmed SSH access worked, I said: "100% CLI-accessible by Claude! By AI, hah. 2025!!" The exclamation points were genuine. This wasn't about preferring CLIs for their own sake. It was about gaining access to full capabilities through an interface that Literate Technology can work with.
 
@@ -258,14 +280,16 @@ When thinking about GUIs vs. CLIs:
 
 - GUIs solved the discovery problem but created the automation barrier
 - Visual interfaces made computers easier to start using but harder to master
-- Composability vanished as applications became isolated islands
+- Composability was constrained as applications became more isolated
+- GUIs limit all four facets of literacy: vocabulary, comprehension, fluency, and writing
+- The translation tax: repeatedly converting intent into permitted click sequences
 - Interface designers became gatekeepers of capability
 - Power users return to CLI for speed, automation, and precision
 - The best systems offer both GUI and CLI access
 - Literate Technology enables natural language access to CLI capabilities, solving discovery without sacrificing power
 - The Eero vs. GL-BE3600 example shows the practical cost of interface-only design
 
-The GUI revolution was real progress. It brought computing to millions who would never have learned command syntax. But it came with costs we're still paying: automation barriers, composability loss, efficiency paradoxes, and designer-imposed limitations.
+The GUI revolution was real progress. It brought computing to millions who would never have learned command syntax. But it came with costs we're still paying: automation barriers, constrained composability, efficiency paradoxes, and designer-imposed limitations.
 
 Understanding what we lost helps us recognize what Literate Technology offers: the discoverability of GUIs with the power of CLIs, accessed through the interface we already know: human language.
 
