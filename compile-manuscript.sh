@@ -95,6 +95,20 @@ if [ -f "appendices/scholarly-analysis-gpt5.md" ]; then
   echo "" >> "$OUTPUT"
 fi
 
+# Appendix F: Guardrail Configuration Templates
+if [ -f "appendices/guardrail-configuration-templates.md" ]; then
+  echo "    ✓ Appendix F: Guardrail Configuration Templates"
+  cat "appendices/guardrail-configuration-templates.md" >> "$OUTPUT"
+  echo "" >> "$OUTPUT"
+fi
+
+# Appendix G: Intent Protocol Specification
+if [ -f "appendices/intent-protocol-spec.md" ]; then
+  echo "    ✓ Appendix G: Intent Protocol Specification"
+  cat "appendices/intent-protocol-spec.md" >> "$OUTPUT"
+  echo "" >> "$OUTPUT"
+fi
+
 # Footer
 cat >> "$OUTPUT" << 'FOOTER'
 
@@ -137,6 +151,6 @@ echo "  Total words: $(wc -w < "$OUTPUT")"
 echo "  Total characters: $(wc -c < "$OUTPUT")"
 echo ""
 echo "  Chapters: 11 (0-10)"
-echo "  Appendices: 5 (A-E)"
+echo "  Appendices: 7 (A-G)"
 echo ""
 echo "Output file: $OUTPUT"
