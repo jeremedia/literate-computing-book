@@ -10,7 +10,7 @@ The question isn't "Will literate computing emerge?" It's "What happens as it be
 
 This chapter projects forward from where we are now, grounded in what we know works, honest about what we don't know, and thoughtful about implications.
 
-## Near-Term: 2026 - Universal Infrastructure Literacy
+## Near-Term: 2026 - Universal Infrastructure Literacy **(High Confidence)**
 
 ### What's Already True (November 2025)
 
@@ -82,6 +82,8 @@ approval_required:
 ```
 
 **Why this matters**: Common protocol means tools interoperate. Intent specified once works across platforms.
+
+**Grounding in current patterns**: This Intent Protocol formalizes the Intent Specification Template from Chapter 6, which already works for expressing goals to literate systems. Standardization makes it universal rather than system-specific.
 
 **2. Literate Infrastructure Marketplaces**
 
@@ -212,7 +214,7 @@ demotion_triggers:
 
 **Result**: Verification cost (from capacity formula) drops significantly, but humans remain in the loop for critical decisions.
 
-## Medium-Term: 2027-2030 - Intent-First Architecture
+## Medium-Term: 2027-2030 - Intent-First Architecture **(Medium Confidence)**
 
 ### 2027: The Articulation Layer
 
@@ -264,6 +266,8 @@ The articulation layer determines:
 **Developers never specify**: Kubernetes, PostgreSQL, Redis, load balancers, SSL certificates, firewall rules.
 
 These exist (infrastructure is real), but they're implementation details, not design decisions.
+
+**Grounding in current patterns**: This builds on the Exploration Pattern (Chapter 5) that already discovers system capabilities empirically and the Knowledge Compilation (Chapter 4) that applies patterns from millions of prior implementations. The difference in 2028 is ubiquity and abstraction—what works for one system in 2025 works automatically for all systems by 2028.
 
 **Analogy**: In 2025, you don't think about TCP packet headers when browsing the web. In 2028, you don't think about container orchestration when building web apps.
 
@@ -339,7 +343,7 @@ The progression: From specific tools → general domains → fundamental concept
 
 **What emerges**: Education focused on principles, patterns, and strategic thinking.
 
-## Long-Term: Beyond Keyboards
+## Long-Term: Beyond Keyboards **(Exploratory / Speculative)**
 
 ### The Interface Question
 
@@ -410,6 +414,8 @@ Think "I want this API to handle more traffic" → System comprehends scale requ
 **Not pushy, not intrusive, but present and helpful.**
 
 Like a knowledgeable colleague who's always available but respects focus time.
+
+**Grounding in current patterns**: This extends the Meta-Loop from Chapter 7—infrastructure that comprehends its own operational requirements. Today (2025), this works for network health monitoring. The 2032 vision is the same pattern at ambient scale: infrastructure participating proactively in its own maintenance and optimization. Speculative in timeline, but grounded in principles that already work.
 
 ### The Philosophical Implications
 

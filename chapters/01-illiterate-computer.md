@@ -43,42 +43,15 @@ Every single one of these steps is an event that triggers a response. The comput
 
 The computer has all the information needed to answer "Is my network healthy?" but it can't answer that question. It can only respond to specific events with specific outputs. The burden of synthesis, interpretation, and understanding falls entirely on you.
 
-## The GUI Myth
+## The Interface Evolution (and What It Didn't Solve)
 
-In the 1980s, graphical user interfaces promised to make computers accessible to everyone. No more memorizing arcane command syntax. No more typing cryptic abbreviations. Instead, you could see your options and click on them. The interface would guide you visually through what was possible.
+Graphical user interfaces (GUIs) were a genuine breakthrough in the 1980s. They solved the discovery problem: you could see what was possible instead of memorizing command names. No more `ls -la` or `rm -rf` syntax to remember. This was real progress that brought millions more people to computing.
 
-And GUIs did make computers more accessible. They absolutely eliminated a significant barrier: the need to memorize command names and syntax. Before GUIs, using a computer required knowing that you could type `ls -la` to list files or `rm -rf` to delete directories. You had to know these commands existed, remember their exact names, and understand their parameters. This was a genuine barrier to entry.
+But GUIs didn't solve the fundamental problem: **computers still couldn't understand intent.** They just replaced one translation burden (memorizing commands) with another (memorizing click sequences). A click sequence is still a program—a specific series of operations you must learn, remember, and execute manually each time. And unlike commands, clicks can't be easily scripted, shared, or automated without specialized tools.
 
-But GUIs didn't eliminate the need to learn. They just replaced one form of learning with another.
+The Eero router example from the opening perfectly illustrates this: a modern, capable device with all the data we needed, but accessing it meant clicking through multiple screens every single time. When we replaced it with the OpenWRT-based GL-BE3600 and gained SSH access, the capabilities didn't change—the literacy did.
 
-Instead of memorizing `cd /var/log && tail -f syslog.log`, you memorize a click sequence: "Open Finder, navigate to Macintosh HD, open the var folder, scroll to find log, find the right log file, double-click to open, scroll to the bottom." Instead of typing a command, you're executing a visual program: a specific sequence of clicks and navigations that achieves a specific result.
-
-This is still a translation burden. You still have to know the sequence exists. You still have to remember the specific steps. You still have to translate your intent ("I want to see recent system errors") into the computer's language (the precise sequence of clicks that will show you the log file).
-
-The GUI is often easier to discover than the CLI. You can browse menus to see what's possible. You can explore by clicking around. But once you've discovered what you need to do, you still have to remember it. The click sequence becomes your new command to memorize.
-
-And here's the crucial insight: GUIs introduced new inefficiencies that CLIs didn't have. With a CLI, once you know the command, you can type it quickly, script it, automate it. With a GUI, you have to perform the entire click sequence every single time. You can't easily tell someone else how to do it. You can't script it. You can't automate it without specialized tools.
-
-We called this progress because more people could use computers. But we didn't solve the fundamental problem: computers still couldn't understand what we wanted. We just made the translation process more visual.
-
-## Visual Programming
-
-Let's call it what it is: when you execute a sequence of clicks to accomplish a task, you are programming the computer. You are providing a sequence of instructions that the computer executes. The fact that you're doing it with a mouse instead of a keyboard doesn't change the fundamental nature of what's happening.
-
-Consider checking your email:
-1. Open browser
-2. Navigate to mail provider
-3. Enter credentials
-4. Click "Inbox"
-5. Scan subject lines
-6. Click specific message
-7. Read content
-
-This is a program. It's a sequence of conditional operations with defined inputs and outputs. You've learned this program through repetition. You execute it daily. When the interface changes, your program breaks and you have to learn a new one.
-
-The difference between this and traditional programming is merely that the computer provides visual affordances for each step. Buttons instead of function names. Menus instead of parameters. But you're still translating intent ("check email") into a precise sequence of operations that the computer can execute.
-
-And like traditional programming, visual programming requires you to understand the system's mental model. You need to know that email lives in "Inbox." You need to know that you access it through a browser. You need to know the difference between "Archive" and "Delete." The computer won't help you if you have the wrong mental model. It will just execute whatever events you trigger.
+**Chapter 2 examines this transition in detail:** what GUIs solved, what they didn't solve, the automation barrier they created, and why literate technology finally delivers on the promise GUIs couldn't fully keep. For now, understand that the visual interface revolution was a step forward—but still within the paradigm of illiterate computers requiring translation.
 
 ## The Mental Weight
 

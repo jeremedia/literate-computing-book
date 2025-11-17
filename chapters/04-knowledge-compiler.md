@@ -124,9 +124,9 @@ On November 17, when I asked "Can you work with it?" about the GL-BE3600:
 
 The difference is empirical discovery enabled by compiled knowledge. The AI knows (from patterns) that OpenWrt systems often have `iwinfo`. It verifies (through execution) that this system does. It explores (through testing) what specific metrics are available. It applies (through code generation) that discovery to create working solutions.
 
-## How Exploration Works: The Planning Loop
+## How Exploration Works: The Planning Loop (Bridge to Chapter 5)
 
-At a high level, AI-enabled exploration follows a systematic planning loop. Here's the pseudocode that guides empirical discovery:
+At a high level, AI-enabled exploration follows a systematic planning loop:
 
 ```
 loop until goal_met or max_attempts:
@@ -138,17 +138,13 @@ loop until goal_met or max_attempts:
   decide: goal met? try different approach? escalate?
 ```
 
-This simple cycle—observe, hypothesize, act, verify, record, decide—repeats with each discovery informing the next attempt. Compiled knowledge suggests what to try. Empirical testing reveals what actually works. The combination produces working solutions.
+On November 17, this loop ran for the GL-BE3600 in about 45 seconds:
+- Observe → Hypothesize → Act → Verify → Record → Decide
+- Result: Discovered iwinfo command, understood output format, ready to build monitoring
 
-On November 17, this loop ran for the GL-BE3600:
-- **Observe**: OpenWrt system, SSH accessible
-- **Hypothesize**: iwinfo probably exists based on OpenWrt patterns
-- **Act**: `which iwinfo` and `iwinfo` test commands
-- **Verify**: Yes, it exists and runs; output format observed
-- **Record**: This router uses iwinfo with standard output
-- **Decide**: Can proceed to create monitoring scripts
+**This is the Exploration Pattern.** Compiled knowledge suggests what to try; empirical testing reveals what actually works.
 
-The entire loop completed in about 45 seconds. Chapter 5 explores this pattern in detail with step-by-step examples, failure cases, and the formalized pattern template.
+**→ Chapter 5 provides the complete treatment:** formalized pattern card, guardrails framework, step-by-step Kubernetes example, failure case handling, and reusable templates. The conceptual introduction here leads to the practical implementation there.
 
 ## Knowledge Compilation in Action
 

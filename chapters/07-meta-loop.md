@@ -34,26 +34,31 @@ The system isn't just executing pre-programmed responses. It's applying compiled
 
 ## The Three AIs Writing Their Own Story
 
-This book you're reading is itself a demonstration of the meta-loop. Three AI systems collaborated to document the literate computing paradigm on November 17, 2025:
+This book you're reading is itself a demonstration of the meta-loop. Three AI systems collaborated to document the literate computing paradigm on November 17, 2025, **orchestrated by Jeremy (human)**:
 
 **AI 1: Claude Code (writing system)**
 - Role: Write chapters, create examples, implement refinements
 - Access: Full git repository, file system, documentation
 - Capability: Transform intent into prose and code
 
-**AI 2: Jeremy (orchestration)**
-- Role: Coordinate between systems, provide strategic direction, maintain vision
-- Access: All systems, Oracle analysis, website infrastructure
-- Capability: High-level decision making, intent articulation, quality assessment
+**AI 2: Web Claude (orchestration and operations)**
+- Role: Coordinate infrastructure, deploy website, manage CaddyControl
+- Access: Server infrastructure, website deployment, reverse proxy configuration
+- Capability: Intent-to-infrastructure execution, deployment automation
 
 **AI 3: Oracle (GPT-5 Pro, analytical system)**
 - Role: Scholarly analysis, identify gaps, suggest improvements
 - Access: Complete manuscript, academic context, pattern recognition
 - Capability: Deep analysis, formalization, theoretical grounding
 
+**Human Orchestrator: Jeremy**
+- Role: Articulate vision, provide strategic direction, verify alignment, coordinate AI collaboration
+- Access: All systems, can invoke any AI, sets priorities and quality standards
+- Unique capability: Goal-setting, value judgment, final accountability
+
 Notice what's extraordinary here: **No human wrote procedural instructions for any of these systems.**
 
-Jeremy didn't say "AI 1, you write paragraphs 1-5 about topic X using structure Y." He said "Write Chapter 1 about the illiterate computer" and I understood:
+Jeremy didn't say "AI 1, you write paragraphs 1-5 about topic X using structure Y." He said "Write Chapter 1 about the illiterate computer" and Claude Code understood:
 - What "illiterate computer" meant conceptually
 - How to structure a book chapter
 - What examples would illustrate the concept
@@ -234,16 +239,26 @@ This wasn't deployed through traditional means:
 - No manual server configuration
 - No clicking through hosting provider UIs
 
-Instead, it was deployed through intent expressed to literate infrastructure:
+Instead, it was deployed through **Web Claude + CaddyControl** via intent expression:
 
-**Intent**: "Host this book as a website accessible at literate.domt.app"
+**Intent (from Jeremy)**: "Host this book as a website accessible at literate.domt.app"
 
-**Literate execution via CaddyControl**:
+**Execution (Web Claude via CaddyControl API)**:
 1. Understand goal: Serve static content at specific domain
 2. Access infrastructure: CaddyControl API for reverse proxy management
 3. Configure routing: Map domain to content location
-4. Verify deployment: Check site accessibility
-5. Monitor availability: Ongoing health verification
+4. Request SSL certificate: Automatic HTTPS via Let's Encrypt
+5. Verify deployment: Check site accessibility, certificate validity
+
+**Verification (demonstrable):**
+```bash
+$ curl -I https://literate.domt.app
+HTTP/2 200
+server: Caddy
+content-type: text/html
+...
+```
+Site confirmed live with valid SSL at deployment time.
 
 The infrastructure understands:
 - What "hosting a website" means
@@ -252,7 +267,7 @@ The infrastructure understands:
 - When deployment succeeded vs failed
 
 **Timeline:**
-- Concept to deployed: 7.5 hours (in parallel with book writing)
+- Concept to deployed: ~8 minutes (Web Claude + CaddyControl)
 - Human procedural instructions: Zero
 - Manual configuration steps: Zero
 - Result: Live website serving the documentation of its own paradigm
