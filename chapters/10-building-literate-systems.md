@@ -1,6 +1,6 @@
 # Chapter 10: Building Literate Systems
 
-**One-sentence summary:** This chapter provides a practical architecture and 90-minute quickstart for building infrastructure that comprehends natural language intent and executes accordingly.
+**One-sentence summary:** This chapter provides a practical architecture and 90-minute quickstart for building infrastructure that processes natural language intent through compiled patterns and executes accordingly.
 
 ## Opening Example
 
@@ -12,7 +12,7 @@ Instead, through articulated intent to literate infrastructure:
 
 **Intent expressed:** "Host the literate computing book at literate.domt.app with SSL"
 
-**CaddyControl (literate reverse proxy) comprehended:**
+**CaddyControl (literate reverse proxy) mapped intent to actions:**
 - What "hosting" means (serve static content via HTTP/HTTPS)
 - What domain mapping requires (DNS configuration, proxy routing)
 - What SSL entails (automatic Let's Encrypt certificate)
@@ -26,7 +26,7 @@ Instead, through articulated intent to literate infrastructure:
 
 **Time from intent to live website:** ~8 minutes
 
-This is a literate system: infrastructure that reads intent, comprehends requirements, and executes solutions.
+This is a literate system: infrastructure that reads intent, maps requirements through compiled patterns, and executes solutions.
 
 This chapter shows you how to build one.
 
@@ -34,7 +34,7 @@ This chapter shows you how to build one.
 
 Building a literate system means creating infrastructure that can:
 1. **Accept intent** in natural language or structured formats
-2. **Comprehend requirements** by mapping intent to capabilities
+2. **Map requirements** by matching intent to capabilities through compiled patterns
 3. **Execute solutions** using compiled knowledge and system access
 4. **Verify outcomes** against success criteria
 5. **Learn patterns** for future similar intents
@@ -77,8 +77,8 @@ The November 17, 2025 network monitoring system demonstrates minimal literate ar
                  ↓
 ┌─────────────────────────────────────────────────────────┐
 │ Claude Code (AI Layer)                                  │
-│ - Comprehends "network health" = CPU, temp, traffic     │
-│ - Knows MikroTik and OpenWRT CLI syntax                 │
+│ - Maps "network health" to: CPU, temp, traffic          │
+│ - Has compiled knowledge of MikroTik/OpenWRT CLI        │
 │ - Generates SwiftBar monitoring script                  │
 └────────────────┬────────────────────────────────────────┘
                  │ (SSH commands)
@@ -198,7 +198,7 @@ curl -X POST https://caddycontrol.domt.app/api/routes \
 
 **Why this is literate:**
 - Natural language: "Host book at literate.domt.app with SSL"
-- AI comprehends: Domain routing + SSL requirements
+- AI maps intent: Domain routing + SSL requirements → executable config
 - API execution: Generates config, requests certificate
 - Verification: Tests deployment success
 
@@ -406,7 +406,7 @@ lessons_learned:
 **Congratulations! You've built your first literate system in 90 minutes.**
 
 **What you've created:**
-- Infrastructure that comprehends "health" semantically
+- Infrastructure that maps "health" intent to observable metrics
 - Automated monitoring responding to natural language intent
 - Reusable pattern for any SSH-accessible system
 - Foundation for more complex literate interactions

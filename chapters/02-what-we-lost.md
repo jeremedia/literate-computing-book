@@ -50,7 +50,7 @@ GUIs limit each of the four facets that make systems literate:
 
 **Vocabulary**: The interface designer decides which metrics have names and visibility. In my Eero example, "bandwidth per device" simply doesn't exist in the GUI's vocabulary, even though the hardware tracks it. The vocabulary is curated, not comprehensive.
 
-**Comprehension**: GUIs can't infer what you're trying to accomplish beyond the options presented. When I need to diagnose a network slowdown, the Eero can't comprehend that intent and surface relevant data. It shows only what its designers anticipated.
+**Comprehension**: GUIs can't infer what you're trying to accomplish beyond the options presented. When I need to diagnose a network slowdown, the Eero can't interpret that intent and surface relevant data. It shows only what its designers anticipated.
 
 **Fluency**: GUIs excel at showing individual pieces of information but struggle to synthesize narratives. Getting a complete picture requires mentally assembling fragments from multiple screens. The system can't tell you a coherent story about its state.
 
@@ -137,7 +137,7 @@ The tradeoffs between CLIs, GUIs, and Literate Technology become clear when we m
 - Discover capabilities through natural language questions
 - Automate by expressing intent and saving generated scripts
 - Fast for both first-time and repeated tasks
-- **Enabling factor**: AI comprehends intent and maps to CLI capabilities
+- **Enabling factor**: AI maps intent to CLI capabilities through compiled knowledge
 - **Result**: Accessible for beginners, empowering for experts
 
 The matrix reveals why neither CLI nor GUI fully solved the human-computer interaction problem:
@@ -150,7 +150,7 @@ The matrix reveals why neither CLI nor GUI fully solved the human-computer inter
 - **1980s-2020s**: GUIs dominated (bottom-right quadrant)
 - **2020s+**: LT enables top-right quadrant (previously thought impossible)
 
-The discovery/automation tradeoff wasn't fundamental—it was a limitation of non-literate interfaces. Once systems can comprehend intent, you can have both discovery (ask what's possible) and automation (save what works).
+The discovery/automation tradeoff wasn't fundamental—it was a limitation of non-literate interfaces. Once systems can map intent to actions through compiled knowledge, you can have both discovery (ask what's possible) and automation (save what works).
 
 ## Why Power Users Return to CLI
 

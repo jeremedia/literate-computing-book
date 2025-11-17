@@ -1,6 +1,6 @@
 # Chapter 1: The Illiterate Computer
 
-**One-sentence summary:** Traditional computers are "illiterate"—they can't comprehend human intent, only respond to specific programmed events, creating a constant translation burden between what we want and what we must type or click.
+**One-sentence summary:** Traditional computers are "illiterate"—they can't interpret human intent semantically, only respond to specific programmed events, creating a constant translation burden between what we want and what we must type or click.
 
 ## Opening Example
 

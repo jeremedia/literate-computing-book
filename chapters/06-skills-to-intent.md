@@ -283,18 +283,32 @@ On November 17, I spent approximately:
 - Real-time metrics tracking
 - Automated alerting on thresholds
 
-To accomplish this traditionally would have required:
+To accomplish this traditionally would have required varying time depending on existing skills:
+
+**Complete beginner scenario** (no networking or scripting background):
 - Learning MikroTik CLI: ~20 hours
 - Learning OpenWRT tools: ~10 hours
-- Learning bash scripting for parsing: ~15 hours
-- Learning SwiftBar integration: ~5 hours
-- Debugging and refining: ~10 hours
+- Learning bash scripting: ~15 hours
+- SwiftBar integration: ~5 hours
+- Debugging: ~10 hours
+- **Total**: ~60 hours
 
-**Traditional total**: ~60 hours
+**Mid-level user scenario** (knows bash, basic networking—realistic for this task):
+- Learning MikroTik specifics: ~5 hours
+- Learning OpenWRT specifics: ~3 hours
+- Adapting bash skills: ~2 hours
+- SwiftBar integration: ~2 hours
+- Debugging: ~3 hours
+- **Total**: ~15 hours
 
-**LT total**: ~1 hour
+**LT total**: ~1 hour (regardless of baseline skill)
 
-The capacity multiplication: **60×**
+**Realistic capacity multiplication**:
+- For mid-level users: **~15×**
+- For complete beginners: **~60×**
+- For experts: **~5-10×**
+
+**The key insight**: The multiplication factor matters less than the democratization. A mid-level user with LT gets the same 1-hour result as an expert without LT would take 5-10 hours to achieve. The paradigm shift is **expert-level results at accessible timescales**, not just speed multiplication.
 
 This isn't an outlier. This is the paradigm.
 
@@ -785,7 +799,7 @@ When shifting from skills to intent:
 - Intent preserves across different systems—same goal, different implementations
 - Traditional capacity: skills learned × time invested (linear, individual)
 - LT capacity: intent clarity × AI capability set (multiplicative, collective)
-- Real 60× capacity multiplication on November 17 monitoring task
+- Real 10-15× capacity multiplication on November 17 monitoring task (60× for complete beginners, 5-10× for experts—LT democratizes expert-level results regardless of baseline)
 - Articulation becomes the essential skill—clarity, specificity, measurable outcomes
 - Expertise gets democratized: expert execution accessible to anyone who can express expert intent
 - Domain knowledge, judgment, and decision-making remain human responsibilities

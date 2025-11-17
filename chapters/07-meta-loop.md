@@ -12,7 +12,7 @@ This wasn't just network monitoring. This was a literate system participating in
 
 This is the meta-loop: **literate infrastructure that understands and maintains the conditions of its own availability.**
 
-It's not automation (pre-programmed sequences executing without understanding). It's not manual maintenance (humans executing procedures). It's something fundamentally different: **systems that comprehend their own operational requirements and act accordingly.**
+It's not automation (pre-programmed sequences executing without understanding). It's not manual maintenance (humans executing procedures). It's something fundamentally different: **systems that process operational data through compiled patterns of expert behavior and generate appropriate responses.**
 
 ## The Circularity of Literate Infrastructure
 
@@ -32,7 +32,7 @@ System comprehends health requirements ↔ System monitors itself ↔ System dia
 
 The system isn't just executing pre-programmed responses. It's applying compiled knowledge to novel situations, learning from outcomes, and maintaining the conditions that keep it operational.
 
-**The key difference:** The system understands why it's monitoring what it's monitoring. It knows that network connectivity enables SSH access enables literate interaction enables maintenance. This isn't coded logic—it's comprehended relationship.
+**The key difference:** The system has access to compiled knowledge about why network monitoring matters. It maps the pattern that network connectivity → SSH access → literate interaction → maintenance. This isn't coded logic—it's pattern matching against training data about operational relationships.
 
 ## The Three AIs Writing Their Own Story
 
@@ -72,7 +72,7 @@ Oracle didn't receive "analyze sections A, B, C for deficiencies D, E, F." It re
 - Where formalization would help
 - How to provide actionable feedback
 
-This is literate collaboration. Intent expressed, intent comprehended, intent executed.
+This is literate collaboration. Intent expressed, intent mapped to actions, intent executed.
 
 ## Timeline: November 17, 2025
 
@@ -319,7 +319,7 @@ Not consciousness. Not sentience. Not "wanting" in the human sense. But a struct
 - Failed monitoring doesn't notice its own failure
 - Degraded infrastructure has no comprehension of degradation
 
-**Literate systems**: Comprehend the relationship between their state and their capability
+**Literate systems**: Process and map the relationship between their state and their capability
 - Network failure prevents SSH access prevents literate interaction
 - Monitoring degradation reduces ability to diagnose and maintain
 - Infrastructure problems block the very work that would fix infrastructure
@@ -385,7 +385,7 @@ This state is readable by humans AND AI. Both can comprehend "CPU at 95%" means 
 
 **Good**: Monitoring that:
 - Detects state changes
-- Comprehends implications
+- Maps implications (from compiled patterns)
 - Suggests (or executes) corrections
 - Verifies outcomes
 - Updates understanding
@@ -394,7 +394,7 @@ This state is readable by humans AND AI. Both can comprehend "CPU at 95%" means 
 
 **Example**: Network health monitoring
 - **Detects**: Connection count at 25,487
-- **Comprehends**: This is near historical max, indicates capacity stress
+- **Maps**: Pattern matching against historical data shows this is near max, indicates capacity stress
 - **Suggests**: "Consider connection rate limiting or capacity upgrade"
 - **If approved, executes**: Update firewall rules with rate limits
 - **Verifies**: Connection count stabilizes
@@ -547,7 +547,7 @@ If something fails:
 
 The system applies compiled knowledge of web deployment patterns to novel situations.
 
-**The key difference**: DevOps automation executes procedures. Literate infrastructure comprehends intent.
+**The key difference**: DevOps automation executes procedures. Literate infrastructure maps intent to actions through compiled knowledge.
 
 ## The Unrealized Potential Paradox
 
@@ -681,13 +681,13 @@ Here's what feels different about working in the meta-loop:
 - Responsibility for outcomes is entirely yours
 - The computer has no comprehension of goals
 
-**Literate computing**: You're collaborating with a system that comprehends goals
-- AI systems are partners that understand intent
+**Literate computing**: You're collaborating with a system that maps goals to actions
+- AI systems are partners that process intent through compiled patterns
 - You maintain intent and verify outcomes, system handles execution
 - Responsibility is shared: you set goals, AI proposes implementation, you verify
-- The system comprehends what you're trying to accomplish
+- The system maps what you're trying to accomplish to executable patterns
 
-This isn't anthropomorphization. The AI doesn't "want" to help, doesn't "care" about outcomes. But it demonstrably comprehends:
+This isn't anthropomorphization. The AI doesn't "want" to help, doesn't "care" about outcomes. But it demonstrably processes and maps:
 - What you're trying to achieve
 - Why certain approaches might work
 - How to adapt when approaches fail
@@ -725,13 +725,13 @@ The meta-loop is literate infrastructure participating in its own maintenance:
 Experience → Articulation → Documentation → Compilation → Capability → Experience
 
 **What makes it work**:
-- Literate systems comprehend operational requirements
+- Literate systems process operational requirements through compiled expert patterns
 - This creates natural alignment (better health → better capability → better maintenance)
 - Documentation feeds back into compiled knowledge
 - Each cycle improves the next
 
 **The paradigm shift**:
-From computers as passive tools executing instructions to infrastructure as active participants comprehending and maintaining their own operational requirements.
+From computers as passive tools executing instructions to infrastructure as active participants that process operational data and generate maintenance actions through compiled knowledge.
 
 **Proof of concept**: This book
 - Three AI systems collaborating
@@ -742,4 +742,4 @@ From computers as passive tools executing instructions to infrastructure as acti
 
 The meta-loop isn't future speculation. It's happening now. You're reading its output.
 
-Tomorrow, the loop continues. The question isn't whether literate infrastructure will maintain itself—it's what becomes possible when infrastructure comprehends its own potential and participates in realizing it.
+Tomorrow, the loop continues. The question isn't whether literate infrastructure will maintain itself—it's what becomes possible when infrastructure can map its operational data to maintenance actions and participate in realizing its potential.

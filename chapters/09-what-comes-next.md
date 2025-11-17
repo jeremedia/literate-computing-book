@@ -94,9 +94,9 @@ approval_required:
 **2026**: You buy literate infrastructure that understands intent:
 
 "I need PostgreSQL with automatic failover and daily backups to S3."
-→ Literate database service comprehends requirements
+→ Literate database service maps requirements to configuration
 → Configures itself appropriately
-→ Monitors and maintains based on understood intent
+→ Monitors and maintains based on intent mapping
 
 **Example marketplace listing**:
 ```
@@ -472,7 +472,7 @@ When literate infrastructure makes decisions, who's responsible?
 
 #### 3. What Remains Human?
 
-If AI can comprehend intent and execute solutions, what uniquely requires humans?
+If AI can map intent to executable solutions through compiled patterns, what uniquely requires humans?
 
 **Things AI can do** (already, in 2025):
 - Generate implementations from descriptions
@@ -762,7 +762,7 @@ The translation still happens, but it's moved from human to AI.
 
 **Historical answer**: Computing amplifies human procedural execution. Computers do calculations, store data, process information at scale.
 
-**Emerging answer**: Computing amplifies human intent realization. Computers comprehend goals and determine how to achieve them.
+**Emerging answer**: Computing amplifies human intent realization. Computers map goals to actions through compiled knowledge and determine how to achieve them.
 
 **This is the shift from tools to collaborators**:
 - **Tools** require skilled wielding (you must know how to use them)
@@ -770,7 +770,7 @@ The translation still happens, but it's moved from human to AI.
 
 Computers are becoming collaborators.
 
-Not conscious ones. Not sentient ones. But collaborators nonetheless: systems that comprehend intent, propose approaches, execute solutions, and adapt to feedback.
+Not conscious ones. Not sentient ones. But collaborators nonetheless: systems that process intent through compiled patterns, propose approaches, execute solutions, and adapt to feedback.
 
 **The future isn't humans replaced by AI**. It's humans amplified by AI in ways that finally match computing's potential to our needs.
 
