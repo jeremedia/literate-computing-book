@@ -220,15 +220,7 @@ He spent zero time:
 - Ensuring consistent voice
 - Creating examples
 
-The capacity multiplication from Chapter 6 in action:
-
-**Capacity = (Intent clarity × AI capability set) ÷ Verification cost**
-
-- **Intent clarity**: Very high (detailed CLAUDE.md, clear examples)
-- **AI capability set**: Very high (prose generation, analysis, refinement)
-- **Verification cost**: Low (spot-check chapters for alignment)
-
-**Result**: 8 hours → 6 chapters → 2,600+ lines of quality prose
+This demonstrates the capacity multiplication from Chapter 6 in action. Jeremy's high intent clarity (detailed CLAUDE.md, clear examples) multiplied by our collective AI capability set (prose generation, analysis, refinement) divided by low verification cost (spot-check chapters for alignment) produced 8 hours → 6 chapters → 2,600+ lines of quality prose.
 
 ## The Website: Infrastructure as Literate Artifact
 
@@ -704,6 +696,73 @@ This isn't anthropomorphization. The AI doesn't "want" to help, doesn't "care" a
 **Not programmed responses**. Comprehension of intent applied to specific infrastructure.
 
 This creates the meta-loop: systems that understand their own operational requirements and can participate in maintaining them.
+
+## When Self-Maintenance Breaks: The API Change Story
+
+**The Setup**: SwiftBar monitoring script checking GL-BE3600 WiFi status every 30 seconds. Worked perfectly for 2 weeks.
+
+**The Failure**:
+```
+Error: command 'iwinfo wlan0 info' returned unexpected format
+Script: glinet-wifi.30s.sh - Exit code 1
+```
+
+**What happened**:
+- GL.iNet pushed firmware update
+- iwinfo output format changed slightly
+- Parsing logic broke
+- Monitoring stopped working
+
+**The monitoring script** (before):
+```bash
+# Expected: "SSID: MyNetwork"
+# Got after update: "SSID...: MyNetwork" (extra dots)
+signal=$(iwinfo wlan0 info | grep "SSID:" | cut -d: -f2)
+# Returned empty string because grep pattern didn't match
+```
+
+**Why "self-maintaining" infrastructure failed here**:
+1. **External dependency changed** (firmware update)
+2. **Parsing was brittle** (exact string match)
+3. **No validation** (script didn't check if signal was empty before displaying)
+4. **Silent degradation** (showed empty value instead of error state)
+
+**How it was caught**:
+I noticed the menu bar showed "—" instead of signal strength. Checked logs, found the parsing error.
+
+**The fix**:
+```bash
+# More robust parsing
+signal=$(iwinfo wlan0 info | grep -o "SSID[.:]*\s*.*" | sed 's/SSID[.:]*\s*//')
+if [ -z "$signal" ]; then
+    echo "⚠️ WiFi: Parsing Error"
+    exit 1
+fi
+```
+
+**Could AI have self-healed this?**
+
+**In theory**: Yes, if it noticed the monitoring failure and had permission to:
+1. Detect the format change
+2. Understand the new format
+3. Update the parsing logic
+4. Test and deploy the fix
+
+**In practice (November 2025)**: No, because:
+- AI wasn't monitoring its own monitoring scripts
+- No permission to auto-update deployed scripts
+- No test framework to validate fixes
+- Requires human judgment: "Is this safe to auto-fix?"
+
+**The meta-loop limitation**: Self-maintaining infrastructure works for detection and diagnosis. Auto-remediation requires:
+- Clear safety boundaries
+- Comprehensive test coverage
+- Rollback mechanisms
+- Human approval for risky changes
+
+**Lesson**: "Self-maintaining" ≠ "fully autonomous." The loop includes human verification for changes that could break things further.
+
+**Status as of November 2025**: This remains a manual fix scenario. The future Chapter 9 envisions might automate it, but today's practice requires human intervention for brittle integration updates.
 
 ## Summary
 

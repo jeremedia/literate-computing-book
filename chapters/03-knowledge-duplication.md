@@ -99,15 +99,7 @@ GPT-5 Pro's scholarly analysis names this precisely: **"DRY at Human Scale."** I
 
 This isn't about lazy users who don't want to learn. It's about recognizing that re-discovering the same knowledge millions of times is extraordinarily wasteful. When the hundredth person learns MikroTik CLI syntax, they're not adding to human knowledge. They're duplicating learning that has already happened ninety-nine times before.
 
-The capacity formula makes this stark:
-
-**Traditional computing:** Capacity = Skills learned × Time invested
-
-Each person's capacity is limited by what they personally learned and how much time they invested. Knowledge doesn't transfer except through documentation that requires re-learning.
-
-**Literate Technology:** Capacity = Intent clarity × AI capability set
-
-Your capacity is determined by how well you can articulate what you want, multiplied by what the AI system has compiled from all prior discoveries. Knowledge compounds. Each person benefits from everyone else's learning without duplicating the effort.
+This knowledge duplication crisis is crystallized in what we'll call the **capacity formula** (fully explored in Chapter 6). In traditional computing, your capacity is limited by skills you personally learned and time you invested. In Literate Technology, capacity shifts to how clearly you can articulate intent, multiplied by the AI's compiled knowledge from millions of prior discoveries. Knowledge compounds instead of duplicating.
 
 ## The MikroTik Example: Thousands Learning Independently
 

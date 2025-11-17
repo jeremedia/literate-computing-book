@@ -392,6 +392,40 @@ Articulation is a learnable skill. Here's how to improve:
 
 Articulation improves through practice and feedback, just like any language skill.
 
+### When Intent Is Clear to Humans But Ambiguous to AI
+
+**Me**: "Show me the top processes."
+
+**What I meant**: Processes using the most CPU right now
+
+**What AI returned**:
+```bash
+ps aux --sort=-%mem | head -10
+```
+Sorted by memory usage, not CPU.
+
+**Why this happened**:
+- "Top" is ambiguous (CPU? Memory? Both?)
+- AI defaulted to memory (common interpretation)
+- I assumed "top" clearly meant CPU (different mental model)
+
+**The clarification**:
+"Show me processes using the most CPU right now."
+
+```bash
+ps aux --sort=-%cpu | head -10
+```
+
+**Lesson**: What feels unambiguous to domain experts can be genuinely ambiguous in natural language.
+
+**Better articulation patterns**:
+- ❌ "Show top processes"
+- ✅ "Show processes by CPU usage"
+- ✅ "Show processes by memory usage"
+- ✅ "Show processes sorted by CPU, then memory"
+
+This is why articulation clarity matters: not because AI is dumb, but because natural language genuinely has multiple valid interpretations. Being specific prevents iteration cycles.
+
 ### Intent Specification Template
 
 To help structure clear articulation, here's a reusable template for expressing intent to LT systems:

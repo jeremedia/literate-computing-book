@@ -377,6 +377,68 @@ exploration_policy:
 
 These guardrails balance exploration speed with system safety, enabling rapid discovery while preventing accidents or malicious use.
 
+### Real Failure: When Exploration Hits Permission Walls
+
+**Scenario**: Attempting to diagnose why a web service is slow
+
+**Me**: "Why is the API responding slowly?"
+
+**AI Exploration Sequence**:
+```bash
+# Attempt 1: Check service status
+systemctl status api-service
+# Success: Service is running
+
+# Attempt 2: Check recent logs
+journalctl -u api-service -n 100
+# Permission denied: User doesn't have journal access
+
+# Attempt 3: Check application logs
+cat /var/log/api/error.log
+# Permission denied: Log directory not readable
+
+# Attempt 4: Check system resources
+top
+# Success: Shows high CPU on api-service process
+
+# Attempt 5: Check what the process is doing
+strace -p 12345
+# Permission denied: Can't trace processes
+
+# Attempt 6: Check network connections
+ss -tanp | grep api
+# Partial success: Shows connections but not process names (needs root)
+```
+
+**Result**: After 6 attempts, we know:
+- ✅ Service is running
+- ✅ CPU usage is high
+- ❌ Can't see logs (permission denied)
+- ❌ Can't trace execution (permission denied)
+- ⚠️ Limited network visibility
+
+**AI Response**:
+"I can see the service is using high CPU (78%), but I can't access logs or trace execution with current permissions. This limits diagnostic capability.
+
+Options:
+1. Grant elevated permissions for this session (security tradeoff)
+2. Have an admin check /var/log/api/error.log and share relevant excerpts
+3. I can monitor CPU patterns over time with current permissions
+4. Add your user to 'systemd-journal' group for log access
+
+What would you prefer?"
+
+**What Made This Good Failure Handling**:
+- Clearly stated what worked vs. what failed
+- Explained why (permissions, not lack of capability)
+- Offered concrete next steps
+- Didn't fabricate answers about the logs
+- Respected security boundaries
+
+**Resolution**: Added user to systemd-journal group, discovered the API was making excessive database queries due to missing index.
+
+**Lesson**: Exploration within permission boundaries is a feature, not a bug. Systems should fail safely when they hit guardrails.
+
 ## Beyond Networking: Kubernetes Example
 
 To show the exploration pattern isn't network-specific, here's how it works with container orchestration:
@@ -541,6 +603,50 @@ This system either has no discrete GPU, or GPU monitoring tools aren't installed
 **Learn from failure**: Record what didn't work to avoid repeating
 
 This honest failure handling builds trust. Users know the system won't fabricate answers when it can't find them.
+
+### Failure Case 2: The Overconfident Script
+
+Sometimes the AI generates confident-sounding code that's subtly broken.
+
+**Me**: "Create a script to clean up old Docker images to free disk space."
+
+**AI Generated**:
+```bash
+#!/bin/bash
+# Remove old Docker images to free space
+docker rmi $(docker images -q)
+```
+
+**What I expected**: Remove unused, old images
+**What it does**: Attempts to remove ALL images, including ones in use
+**Result**:
+```
+Error: image is being used by container xyz
+Error: image is being used by container abc
+[Dozens of errors]
+```
+
+**Why this failed**:
+1. **Vague intent**: "old" wasn't defined
+2. **Overfit to simple case**: AI assumed "all images = old images"
+3. **No safety check**: Didn't filter for images actually in use
+4. **Confident presentation**: Script looked reasonable, no warnings
+
+**Recovery**:
+"That tried to remove images still in use. Clean up only images not currently used by any container, older than 30 days."
+
+```bash
+#!/bin/bash
+# Remove Docker images older than 30 days and not in use
+docker image prune --all --filter "until=720h"
+```
+
+**Lesson**: Verify generated scripts in safe environments before production. "Looks right" ≠ "is right."
+
+**Success pattern**:
+- Start with: "Show me what this would affect" (dry-run thinking)
+- Then: "Execute if fewer than N items affected"
+- Always: Test in non-production first
 
 ## The Feedback Loop
 

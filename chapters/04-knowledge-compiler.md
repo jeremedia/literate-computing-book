@@ -234,6 +234,47 @@ Generate a script that:
 
 This wasn't possible through search alone. It required compiled knowledge applied through empirical exploration.
 
+### When Compilation Becomes Confabulation
+
+The line between "compiled knowledge" and "hallucinated facts" can be subtle.
+
+**Me**: "What's the default connection timeout for MikroTik RouterOS?"
+
+**AI Response**: "The default connection timeout in RouterOS is 3600 seconds (1 hour) for TCP connections, configured in /ip firewall connection tracking."
+
+**Reality Check**:
+```bash
+ssh admin@router
+/ip firewall connection print
+# Shows: tcp-timeout: 86400s (24 hours), not 3600s
+```
+
+**What happened**:
+- AI had general knowledge about connection timeouts
+- Specific MikroTik default wasn't in training data (or was unclear)
+- Generated plausible-sounding answer that was confidently wrong
+- Even cited a real config location (making it seem authoritative)
+
+**How I caught it**:
+I verified before changing production configs. The actual timeout was 24 hours, not 1 hour—critically different for my use case.
+
+**Recovery approach**:
+"Check the actual value on my router and show me the current configuration."
+
+```bash
+/ip firewall connection tracking print
+```
+
+**The real answer**: 86400 seconds (24 hours)
+
+**Lesson**:
+- **Verify system-specific values** before trusting them
+- **Confidence ≠ correctness** (the response sounded authoritative)
+- **When stakes matter, empirical validation** beats compilation trust
+- The AI can admit uncertainty: "Let me check your actual router config" is better than wrong confidence
+
+This is why the Exploration Pattern emphasizes **compiled knowledge suggests, empirical testing confirms**.
+
 ## The Meta-Loop of Compilation
 
 Here's something profound: every interaction adds to the potential compiled knowledge available to future systems.
@@ -250,28 +291,7 @@ This is knowledge compilation at scale: each discovery, properly documented, bec
 
 ## What This Means for Capacity
 
-Remember the capacity formula from Chapter 3:
-
-**Traditional computing:**
-Capacity = Skills learned × Time invested
-
-Your capacity is limited by what you've personally learned.
-
-**Literate Technology:**
-Capacity = Intent clarity × AI capability set
-
-Your capacity is determined by:
-1. How well you can articulate what you want (intent clarity)
-2. What the AI can do based on compiled knowledge (capability set)
-
-The AI's capability set includes:
-- Patterns compiled from millions of prior examples
-- Ability to explore systems empirically
-- Capacity to verify hypotheses through execution
-- Skills to generate and test solutions
-- Knowledge to adapt patterns to specific contexts
-
-Your job is intent clarity. The AI's job is capability application. Together, this multiplication creates capacity that neither could achieve alone.
+Knowledge compilation transforms capacity (detailed in Chapter 6). When the AI's capability set includes patterns compiled from millions of prior examples, plus the ability to explore systems empirically and verify hypotheses through execution, it multiplies what you can accomplish. Your job becomes articulating clear intent. The AI's job becomes applying compiled knowledge to your specific context. This multiplication creates capacity that neither could achieve alone.
 
 ## Limitations and Boundaries
 
