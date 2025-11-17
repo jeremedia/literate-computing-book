@@ -96,6 +96,60 @@ This is the efficiency paradox: GUIs are easier to start using but harder to mas
 
 Power users feel this acutely. After years of experience, they're still performing the same click sequences they learned as beginners. The interface never gets faster. Their expertise doesn't compound.
 
+### The Discovery vs. Automation Matrix
+
+The tradeoffs between CLIs, GUIs, and Literate Technology become clear when we map them across two dimensions: **discoverability** (how easily you can learn what's possible) and **automation capability** (how easily you can script and repeat tasks):
+
+```
+                    HIGH AUTOMATION
+                           ↑
+                           |
+                    CLI    |    LT
+                  (expert) | (ideal)
+                           |
+    LOW DISCOVERY ←--------+--------→ HIGH DISCOVERY
+                           |
+                           |
+                   (none)  |   GUI
+                           | (beginner)
+                           |
+                           ↓
+                    LOW AUTOMATION
+```
+
+**CLI (High Automation, Low Discovery)**:
+- Can automate anything you can do manually
+- Highly composable through pipes and scripts
+- Fast once you know the commands
+- **Barrier**: Must memorize commands or read documentation
+- **Result**: Powerful for experts, intimidating for beginners
+
+**GUI (High Discovery, Low Automation)**:
+- Easy to explore and discover features
+- Visual feedback helps learning
+- Good for infrequent tasks
+- **Barrier**: Hard to automate, not composable
+- **Result**: Accessible for beginners, limiting for experts
+
+**Literate Technology (High Discovery, High Automation)**:
+- Discover capabilities through natural language questions
+- Automate by expressing intent and saving generated scripts
+- Fast for both first-time and repeated tasks
+- **Enabling factor**: AI comprehends intent and maps to CLI capabilities
+- **Result**: Accessible for beginners, empowering for experts
+
+The matrix reveals why neither CLI nor GUI fully solved the human-computer interaction problem:
+- CLIs sacrificed discoverability for power
+- GUIs sacrificed power for discoverability
+- LT achieves both by adding a semantic layer that translates intent into commands
+
+**Historical progression**:
+- **1960s-1980s**: Only CLI existed (top-left quadrant)
+- **1980s-2020s**: GUIs dominated (bottom-right quadrant)
+- **2020s+**: LT enables top-right quadrant (previously thought impossible)
+
+The discovery/automation tradeoff wasn't fundamental—it was a limitation of non-literate interfaces. Once systems can comprehend intent, you can have both discovery (ask what's possible) and automation (save what works).
+
 ## Why Power Users Return to CLI
 
 There's a reason experienced developers, system administrators, and power users gravitate back toward command-line tools. It's not nostalgia. It's not elitism. It's that the CLI offers capabilities GUIs can't match:
