@@ -1,5 +1,7 @@
 # Chapter 5: The Exploration Pattern
 
+**One-sentence summary:** Literate systems discover capabilities through a formalized exploration loop—observe, hypothesize, act, verify, record, decide—using compiled knowledge as a starting point and empirical testing to confirm what actually works on specific systems.
+
 ## Opening Example
 
 November 17, 2025, 3:15 PM. I need to know which devices are connected to my GL-BE3600 WiFi 7 router, but I don't know the commands. In the traditional world, I would:

@@ -1,5 +1,7 @@
 # Chapter 4: AI as Systematic Knowledge Compiler
 
+**One-sentence summary:** AI training systematically compiles knowledge from billions of human examples into statistical patterns that, combined with execution access, enable empirical discovery of what systems can do without manual learning.
+
 ## Opening Example
 
 November 17, 2025, 2:47 PM. I just connected a GL-BE3600 WiFi 7 router to my network. I know it runs OpenWrt. I know it has SSH access. But I don't know what specific commands it supports, what metrics it exposes, or how to extract the information I need.

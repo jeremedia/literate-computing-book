@@ -1,5 +1,7 @@
 # Chapter 1: The Illiterate Computer
 
+**One-sentence summary:** Traditional computers are "illiterate"—they can't comprehend human intent, only respond to specific programmed events, creating a constant translation burden between what we want and what we must type or click.
+
 ## Opening Example
 
 It's November 17, 2025, and I'm staring at my MikroTik RB5009 router. It's handling exactly 25,583 active connections at 46°C, with 855MB of free memory and 10% CPU load, routing traffic for my entire home infrastructure, and sitting there silently doing exactly what it's programmed to do. The router knows everything happening on my network: which devices are connected, how much bandwidth they're using, when connections fail, what's slow, what's fast. It has all this information, but it can't tell me about it unless I know exactly which commands to type, which web interface pages to navigate, which specific buttons to click.

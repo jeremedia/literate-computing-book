@@ -1,5 +1,7 @@
 # Chapter 8: Organizational Transformation
 
+**One-sentence summary:** Organizations transform from execution-focused IT departments to intent-focused operations where the core competency shifts from knowing how to configure systems to articulating what should be accomplished and verifying it was done correctly.
+
 ## When the IT Department Becomes the Intent Department
 
 What happens to traditional IT and operations roles when infrastructure becomes literate?

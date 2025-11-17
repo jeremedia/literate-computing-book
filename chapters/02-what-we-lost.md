@@ -1,5 +1,7 @@
 # Chapter 2: What We Lost When We Gained GUIs
 
+**One-sentence summary:** GUIs solved the discovery problem by making options visible, but created an automation barrier by replacing memorizable commands with un-scriptable click sequences that must be manually repeated forever.
+
 ## Opening Example
 
 November 17, 2025. I'm looking at my Eero 6E router through its web interface. Beautiful design. Clean typography. Smooth animations. Intuitive navigation. It shows me that 12 devices are connected, that my network is "healthy," and that I'm getting "great performance." But I need to know something specific: which device is using the most bandwidth right now?

@@ -1,5 +1,7 @@
 # Chapter 7: The Meta-Loop
 
+**One-sentence summary:** Literate infrastructure participates in its own maintenance by comprehending operational requirements and creating self-reinforcing feedback loops where maintaining the network enables the AI that maintains the network.
+
 ## The Infrastructure That Maintains Itself
 
 On November 17, 2025, while creating network monitoring scripts, I observed something that had been implicit throughout the session but suddenly became explicit:

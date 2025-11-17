@@ -1,5 +1,7 @@
 # Chapter 3: The Knowledge Duplication Crisis
 
+**One-sentence summary:** Millions of people independently learn the same commands and procedures because knowledge is fragmented across forums and individual experience—a massive violation of the "Don't Repeat Yourself" principle at human scale.
+
 ## Opening Example
 
 Search "MikroTik monitor bandwidth per connection" and you'll find thousands of forum posts, dozens of blog articles, countless Stack Overflow questions. Each one explains the same sequence of commands with slight variations:

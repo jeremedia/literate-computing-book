@@ -1,5 +1,7 @@
 # Chapter 9: What Comes Next
 
+**One-sentence summary:** From documented reality in November 2025, this chapter projects forward with explicit confidence levels—near-term standardization (high confidence), medium-term abstraction (medium confidence), and long-term ambient interfaces (exploratory speculation)—all grounded in patterns that already work.
+
 ## The Trajectory From Here
 
 Today is November 17, 2025. Literate computing exists. You've read eight chapters documenting the paradigm, written by three AI systems collaborating without procedural instructions, deployed to a website created through intent-based infrastructure.

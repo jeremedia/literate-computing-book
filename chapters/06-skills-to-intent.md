@@ -1,5 +1,7 @@
 # Chapter 6: From Skills to Intent
 
+**One-sentence summary:** The capacity formula shifts from "Skills learned × Time invested" to "(Intent clarity × AI capability) ÷ Verification cost"—democratizing technical execution while making clear articulation and judgment verification the new essential skills.
+
 ## Opening Example
 
 Two ways to accomplish the same goal:

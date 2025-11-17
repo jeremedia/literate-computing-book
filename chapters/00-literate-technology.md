@@ -1,5 +1,7 @@
 # Chapter 0: What We Mean by Literate Technology
 
+**One-sentence summary:** Literate Technology means systems that can read human intent, comprehend goals, produce artifacts fluently, and adapt through natural language interaction—going beyond keyword matching to genuine semantic understanding.
+
 ## Opening Example
 You ask a system, “Show me a one-screen view of my network health, and tell me if anything needs attention.” You do not specify CLI flags or GUI click paths. You articulate intent in plain language. The system explores available interfaces, gathers the needed signals, drafts a compact summary, and offers a short list of next actions you can accept or refine.
 
